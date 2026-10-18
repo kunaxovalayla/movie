@@ -1,0 +1,58 @@
+.vikingMediaCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.vikingPosterHolder {
+  position: relative;
+  display: block;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background-color: #1f2937;
+  margin-bottom: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.vikingPosterHolder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.vikingMediaCard:hover .vikingPosterHolder img {
+  transform: scale(1.05);
+}
+
+.vikingInfoArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.vikingMetaLabel {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-bottom: 2px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vikingCardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.vikingCardTitle a {
+  color: inherit;
+  text-decoration: none;
+}

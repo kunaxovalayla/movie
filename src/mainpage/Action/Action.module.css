@@ -1,0 +1,210 @@
+.sectionVideo {
+  padding: 40px 20px;
+   background: #131722;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.tabsContainer {
+  margin-bottom: 24px;
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.tabItem {
+  color: #9ca3af;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.tabItem.active {
+  color: #0284c7;
+  font-weight: 600;
+}
+
+.tabDivider {
+  color: #d1d5db;
+}
+
+.contentWrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 30px;
+  width: 100%;
+}
+
+.swiperWrapperContainer {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.swiperContainer {
+  width: 100%;
+}
+
+.movieCard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 2 / 3;
+  background-color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featuredBadge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: #0ea5e9;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.metaText {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movieTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movieTitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.rightBanner {
+  width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 25px;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.bannerTitlewhite {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.3;
+  margin: 0;
+  text-align: center;
+}
+
+.bannerBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.arrowButtons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Buradakı seçiciləri JSX-dəki .actionPrevBtn və .actionNextBtn ilə eyniləşdirdik */
+:global(.actionPrevBtn),
+:global(.actionNextBtn),
+.arrowBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+:global(.actionPrevBtn):hover,
+:global(.actionNextBtn):hover,
+.arrowBtn:hover {
+  background-color: #ffffff;
+  color: #131722;
+  border-color: #ffffff;
+}
+
+.viewAll {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+
+@media (max-width: 1024px) {
+  .tabsContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .tabs {
+    justify-content: center;
+  }
+
+  .contentWrapper {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+  
+  .rightBanner {
+    width: 100%;
+    border-left: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-left: 0;
+    padding-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+}

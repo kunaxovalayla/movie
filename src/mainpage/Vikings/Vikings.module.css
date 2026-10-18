@@ -1,0 +1,132 @@
+.vikingStreamBlock {
+  
+  padding: 60px 20px 40px;
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.85)),
+              url("../../assets/images/ep-bg.jpg") center/cover no-repeat;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+ margin: 0 auto;
+  overflow: hidden;
+}
+
+
+.vikingWrapper {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.vikingHeadingArea {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.vikingMainHeader {
+  font-size: 52px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.vikingSubHeader {
+  font-size: 18px;
+  color: #e5e7eb;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.vikingTabButtonsRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.vikingTabBtn {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: all 0.25s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.vikingTabBtn:hover {
+  opacity: 1;
+}
+
+.vikingTabActive {
+  color: #38bdf8 !important;
+  border: 2px solid #38bdf8 !important;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+}
+
+
+.vikingMobileGrid {
+  display: none;
+}
+
+.vikingDesktopCarousel {
+  display: block;
+  width: 100%;
+}
+
+.vikingSwiperBox {
+  width: 100%;
+  overflow: hidden !important;
+}
+
+
+@media (max-width: 1024px) {
+  .vikingStreamBlock {
+    padding: 40px 15px 30px;
+    min-height: auto;
+  }
+
+  .vikingMainHeader {
+    font-size: 36px;
+  }
+  
+  .vikingSubHeader {
+    font-size: 14px;
+  }
+
+  .vikingTabBtn {
+    font-size: 13px;
+    padding: 3px 8px;
+  }
+
+
+  .vikingDesktopCarousel {
+    display: none;
+  }
+
+  .vikingMobileGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+
+  
+  .vikingHeroCard {
+    grid-column: span 2;
+  }
+}
