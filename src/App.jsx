@@ -1,33 +1,25 @@
-import { PopularMovies } from "./mainpage/popularmovies/PopularMovies";
-import "./App.css";
-import { Header } from "./header/header";
-import { Hero } from "./mainpage/Hero/Hero";
-import {RomanticMovies} from "./mainpage/RomanticMovies/RomanticMovies";
-import { VideoBg } from "./mainpage/VideoBg/VideoBg";
-import { Action } from "./mainpage/Action/Action";
-import { Funniest } from "./mainpage/Funniest/Funniest";
-import { Vikings } from "./mainpage/Vikings/Vikings";
-import { PopularSeries } from "./mainpage/popularSeries/PopularSeries";
-import { Featured } from "./mainpage/Featured/Featured";
-import { Top} from "./mainpage/Top/Top";
-import { Footer} from "./footer/footer";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Home } from './home/Homepage';
+import {Movies} from './MoviePage/Movies';
+import {NotFound} from './404/NotFound';
+import { MovieDetails } from './MovieDetails/MovieDetails';
+import './App.css';
 
-export const App = () => {
+function App() {
   return (
-    <>
-      <Header />
-      <Hero/>
-      <PopularMovies />
-      <RomanticMovies/>
-      <VideoBg/>
-      <Action/>
-      <Funniest/>
-      <Vikings/>
-      <PopularSeries/>
-      <Featured/>
-      <Top/>
-      < Footer/>
-     
-    </>
+    <Router>  {/* Tək və yeganə Router burada qalır */}
+      <div className="app-container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+           <Route path="/movie/:id" element={<MovieDetails />} />
+           <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
+
+export default App;
+

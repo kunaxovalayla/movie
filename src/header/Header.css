@@ -1,97 +1,150 @@
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
 
-.navcenter.active {
-  z-index: 1000;
-}
-
-.header-container.menu-open .hamburger {
-  position: relative;
-  z-index: 1000;
-}
+/* HEADER */
 
 .header-container {
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  width: 100%;
-  background-color: #ffffff;
-  border-bottom: 1px solid #eaeaea;
   position: relative;
   z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #eaeaea;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.header-container *,
+.header-container *::before,
+.header-container *::after {
+  box-sizing: border-box;
 }
 
 .navbar {
+  min-height: 70px;
+  width: 100%;
+  padding: 15px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 40px;
-  width: 100%;
-  box-sizing: border-box;
+  gap: 25px;
 }
 
 .nav-left-group {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.navleft {
+  display: flex;
+  align-items: center;
 }
 
 .navleft img {
+  display: block;
   height: 40px;
+  max-width: 150px;
   object-fit: contain;
 }
+
+/* NAVIGATION */
 
 .navcenter {
   display: flex;
   align-items: center;
+  margin: 0 auto;
 }
 
-.navcenter ul {
+.main-menu {
   display: flex;
+  align-items: center;
+  gap: 30px;
   list-style: none;
-  gap: 35px;
   margin: 0;
   padding: 0;
-  align-items: center;
 }
 
-.navcenter ul li a,
-.menu-title {
+.main-menu > li {
+  position: relative;
+  list-style: none;
+}
+
+.main-menu a {
+  color: #333;
   text-decoration: none;
-  color: #333333;
   font-size: 16px;
   font-weight: 500;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: color 0.2s;
-  background: transparent;
-  border: none;
-  outline: none;
-  box-shadow: none;
+  transition: color 0.2s ease;
 }
 
-.navcenter ul li a:hover,
-.menu-title:hover {
+.main-menu a:hover {
   color: #00bfff;
 }
 
-.movieClick,
-.blogclick {
-  position: relative;
+/* Movies və Blogs */
+
+.menu-heading {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
+
+.submenu-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  color: #555;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+/* DROPDOWN — çərçivəsiz */
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -12px;
+  min-width: 140px;
+  margin: 0;
+  padding: 10px 0;
+  list-style: none;
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 1001;
+}
+
+.dropdown-menu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 9px 12px;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #333;
+  background: transparent;
+}
+
+.dropdown-menu li a:hover {
+  color: #00bfff;
+  background: transparent;
+}
+
+/* SAĞ TƏRƏF */
 
 .navRight {
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-shrink: 0;
 }
 
 .searchContainer {
@@ -101,155 +154,116 @@
 }
 
 .searchInput {
-  width: 280px;
-  padding: 10px 40px 10px 18px;
-  border: 1px solid #dcdcdc;
-  border-radius: 30px;
+  width: 240px;
+  padding: 10px 38px 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
   outline: none;
-  box-shadow: none;
   font-size: 14px;
-  background-color: #fafafa;
+  background: #fafafa;
+}
+
+.searchInput:focus {
+  border-color: #00bfff;
 }
 
 .searchIcon {
   position: absolute;
-  right: 15px;
-  color: #666666;
+  right: 13px;
+  color: #666;
   font-size: 18px;
-  cursor: pointer;
-  background: transparent;
-  border: none;
+  pointer-events: none;
 }
 
 .uploadContainer {
   display: flex;
   align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  color: #333333;
-  font-size: 15px;
-  font-weight: 500;
-  background: transparent;
+  gap: 7px;
+  padding: 0;
   border: none;
-  outline: none;
+  background: transparent;
+  color: #333;
+  font-size: 15px;
+  cursor: pointer;
 }
 
 .uploadIcon {
   font-size: 24px;
-  color: #555555;
-  background: transparent;
+  color: #555;
 }
 
 .user {
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 
 .userIcon {
-  font-size: 38px;
   color: #bcbcbc;
-  cursor: pointer;
-  background: transparent;
+  font-size: 36px;
+}
+
+/* MOBİL ELEMENTLƏR */
+
+.hamburger,
+.mobile-search-toggle,
+.sidebar-close {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   border: none;
-  outline: none;
+  background: transparent;
+  color: #333;
+  cursor: pointer;
 }
 
 .hamburger {
-  display: none;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  padding: 0;
+  font-size: 26px;
 }
 
-.hamburgerIcon {
-  font-size: 26px;
-  color: #333333;
-  background: transparent;
+.mobile-search-toggle {
+  font-size: 23px;
 }
 
 .sidebar-header {
   display: none;
 }
 
-.mobile-search-toggle {
-  display: none;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  padding: 0;
-}
-
-.mobileSearchIcon {
-  font-size: 24px;
-  color: #333333;
-  background: transparent;
-}
-
 .mobile-search-dropdown {
   position: absolute;
-  right: 20px;
-  top: 75px;
-  width: 280px;
-  background-color: #ffffff;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #eaeaea;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
+  top: 100%;
+  right: 15px;
+  width: 260px;
+  padding: 10px 0;
+  background: #fff;
   z-index: 1100;
-}
-
-.mobile-search-box {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
 }
 
 .mobile-search-input {
   width: 100%;
-  padding: 8px 35px 8px 15px;
-  border: 1px solid #dcdcdc;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
   border-radius: 20px;
   outline: none;
-  box-shadow: none;
   font-size: 14px;
-  background-color: #fafafa;
-  box-sizing: border-box;
 }
 
-.mobile-search-btn-icon {
-  position: absolute;
-  right: 12px;
-  font-size: 16px;
-  color: #666666;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  outline: none;
-  box-shadow: none;
-  padding: 0;
-}
+/* DESKTOP */
 
-/* ==========================================================
-    DESKTOP (PC) ÜÇÜN
-   ========================================================== */
-@media screen and (min-width: 1024px) {
-  .hamburger,
-  .mobile-search-toggle,
-  .mobile-search-dropdown,
-  .menu-overlay {
-    display: none !important;
+@media (min-width: 1024px) {
+  .main-menu {
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .movieClick:hover > .dropdown-menu,
+  .blogclick:hover > .dropdown-menu {
+    display: block;
   }
 
   .movieClick,
@@ -258,197 +272,179 @@
     margin-bottom: -10px;
   }
 
-  /* Desktop-da hover zamanı dropdown menyunun açılması */
-  .movieClick:hover .dropdown-menu,
-  .blogclick:hover .dropdown-menu {
-    display: block !important;
-  }
-
-  /* İlkin olaraq desktopda dropdown gizli qalır (və ya JS ilə idarə olunursa, uyğunlaşır) */
-  .dropdown-menu {
-    display: none;
-    position: absolute;
+  .movieClick > .dropdown-menu,
+  .blogclick > .dropdown-menu {
     top: 100%;
-    left: 0;
-    background-color: #ffffff;
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    list-style: none;
-    padding: 8px 0;
-    min-width: 160px;
-    z-index: 999;
-  }
-
-  .dropdown-menu li a {
-    display: block;
-    padding: 10px 18px;
-    color: #444444;
-    font-size: 14px;
-    white-space: nowrap;
-    background: transparent;
-    border: none;
-    outline: none;
-    box-shadow: none;
-  }
-
-  .dropdown-menu li a:hover {
-    background-color: #f4f6f8;
-    color: #00bfff;
-  }
-
-  /* Desktopda ox işarəsini gizlədirik */
-  .toggle-icon {
-    display: none !important;
   }
 }
 
-/* ==========================================================
-    MOBİL VƏ TABLET (Soldan açılan şık Sidebar)
-   ========================================================== */
-@media screen and (max-width: 1023px) {
+/* MOBİL VƏ TABLET */
+
+@media (max-width: 1023px) {
+  .navbar {
+    padding: 14px 25px;
+    gap: 15px;
+  }
+
   .hamburger {
-    display: block;
+    display: flex;
   }
 
   .desktop-search,
   .desktop-upload {
-    display: none !important;
+    display: none;
   }
 
   .mobile-search-toggle {
     display: flex;
-    align-items: center;
   }
 
   .navcenter {
     position: fixed;
     top: 0;
-    left: -300px;
+    left: 0;
     width: 280px;
+    max-width: 85vw;
     height: 100vh;
-    background-color: #ffffff;
-    box-shadow: 5px 0 25px rgba(0, 0, 0, 0.25);
-    transition: left 0.3s ease-in-out;
-    z-index: 9999;
+    height: 100dvh;
+    margin: 0;
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    box-sizing: border-box;
+    align-items: stretch;
+    background: #fff;
+    transform: translateX(-105%);
+    transition: transform 0.3s ease;
     overflow-y: auto;
+    z-index: 1001;
   }
 
   .navcenter.active {
-    left: 0;
+    transform: translateX(0);
   }
 
   .sidebar-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     padding: 20px;
-    border-bottom: 1px solid #eaeaea;
-    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
   }
 
   .sidebar-title {
     font-size: 18px;
     font-weight: 600;
-    color: #333333;
+    color: #333;
   }
 
   .sidebar-close {
-    font-size: 24px;
-    cursor: pointer;
-    color: #555555;
-    background: transparent;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    padding: 0;
+    display: flex;
+    font-size: 23px;
   }
 
-  .navcenter ul {
+  .main-menu {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
+    align-items: stretch;
     gap: 18px;
     width: 100%;
-    box-sizing: border-box;
+    padding: 20px;
   }
 
-  .navcenter ul li {
+  .main-menu > li {
     width: 100%;
   }
 
-  .menu-title {
+  .menu-heading {
     justify-content: space-between;
     width: 100%;
+  }
+
+  .menu-heading > a {
+    flex: 1;
     padding: 5px 0;
-    font-size: 16px;
-    background: transparent;
-    border: none;
-    outline: none;
-    box-shadow: none;
   }
 
-  .toggle-icon {
-    display: inline-block !important;
-    font-size: 12px;
-    color: #777777;
-    background: transparent;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    padding: 0;
+  .submenu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
   }
 
-  .dropdown-menu {
-    list-style: none;
-    padding: 5px 0 5px 15px;
-    margin: 10px 0 0 0;
-    background-color: #f8f9fa;
-    border-radius: 6px;
-    border-left: 2px solid #00bfff;
+  .movieClick > .dropdown-menu,
+  .blogclick > .dropdown-menu {
+    display: none;
+    position: static;
+    width: 100%;
+    min-width: 0;
+    margin: 8px 0 0;
+    padding: 5px 0 5px 12px;
+    background: transparent;
+  }
+
+  .movieClick.open > .dropdown-menu,
+  .blogclick.open > .dropdown-menu {
+    display: block;
   }
 
   .dropdown-menu li a {
-    display: block;
-    padding: 8px 12px;
-    font-size: 14px;
-    color: #555555;
-    background: transparent;
-    border: none;
-    outline: none;
-    box-shadow: none;
+    padding: 9px 8px;
+  }
+
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+  }
+
+  .header-container {
+    z-index: 1000;
+  }
+
+  .header-container .navbar {
+    position: relative;
   }
 }
 
-@media screen and (max-width: 767px) {
+/* KİÇİK TELEFONLAR */
+
+@media (max-width: 767px) {
   .navbar {
+    min-height: 60px;
     padding: 12px 15px;
+    gap: 10px;
+  }
+
+  .nav-left-group {
+    gap: 12px;
   }
 
   .navleft img {
     height: 32px;
+    max-width: 120px;
+  }
+
+  .navRight {
+    gap: 13px;
   }
 
   .userIcon {
-    font-size: 32px;
+    font-size: 31px;
+  }
+
+  .mobile-search-dropdown {
+    right: 10px;
+    width: min(260px, calc(100vw - 20px));
   }
 }
 
+/* Klaviatura ilə idarəetmə */
 
-button, 
-.userIcon, 
-.searchIcon, 
-.mobileSearchIcon, 
-.uploadContainer, 
-.sidebar-close, 
-.toggle-icon,
-.hamburger {
-  outline: none;
-  border: none;
-  box-shadow: none;
-  -webkit-tap-highlight-color: transparent;
+.header-container button:focus-visible,
+.header-container a:focus-visible,
+.header-container input:focus-visible {
+  outline: 2px solid #00bfff;
+  outline-offset: 3px;
 }

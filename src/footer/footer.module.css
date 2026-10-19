@@ -1,11 +1,11 @@
 .footer {
-  background-color: #0d1117;
+  background-color: #131722;
   color: #8a94a6;
   padding: 60px 30px 30px 30px;
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
-  border-radius: 8px; /* İstəsəniz bu sərhəd radiusunu saxlaya və ya silə bilərsiniz */
+  
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 

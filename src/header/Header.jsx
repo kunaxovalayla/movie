@@ -1,5 +1,6 @@
 
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 import logoImg from "../assets/images/image.jpg";
@@ -9,38 +10,24 @@ import { AiOutlineCloudUpload } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 
 export const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMovieOpen, setIsMovieOpen] = useState(false);
   const [isBlogOpen, setIsBlogOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  // Bütün menyuları bağla
   const closeAll = () => {
     setIsMobileMenuOpen(false);
     setIsMovieOpen(false);
     setIsBlogOpen(false);
+    setIsSearchOpen(false);
   };
 
-  // Hamburger menyu
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
+    setIsMovieOpen(false);
+    setIsBlogOpen(false);
     setIsSearchOpen(false);
-    setIsMovieOpen(false);
-    setIsBlogOpen(false);
   };
-
-  // Movies alt menyusu
-  const toggleMovie = () => {
-    setIsMovieOpen((prev) => !prev);
-    setIsBlogOpen(false);
-  };
-
-
-  const toggleBlog = () => {
-    setIsBlogOpen((prev) => !prev);
-    setIsMovieOpen(false);
-  };
-
 
   const toggleSearch = () => {
     setIsSearchOpen((prev) => !prev);
@@ -49,58 +36,49 @@ export const Header = () => {
     setIsBlogOpen(false);
   };
 
+  const toggleMovie = () => {
+    setIsMovieOpen((prev) => !prev);
+    setIsBlogOpen(false);
+  };
+
+  const toggleBlog = () => {
+    setIsBlogOpen((prev) => !prev);
+    setIsMovieOpen(false);
+  };
+
   return (
     <>
-     
       {isMobileMenuOpen && (
-        <div
-          className="menu-overlay"
-          onClick={closeAll}
-          aria-hidden="true"
-        />
+        <div className="menu-overlay" onClick={closeAll} />
       )}
 
-      <header
-        className={`header-container ${
-          isMobileMenuOpen ? "menu-open" : ""
-        }`}
-      >
+      <header className="header-container">
         <div className="navbar">
 
-          
+          {/* Sol tərəf: hamburger və logo */}
           <div className="nav-left-group">
             <button
               type="button"
               className="hamburger"
               onClick={toggleMobileMenu}
-              aria-label={
-                isMobileMenuOpen ? "Close menu" : "Open menu"
-              }
+              aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
             >
-              {isMobileMenuOpen ? (
-                <FiX className="hamburgerIcon" />
-              ) : (
-                <FiMenu className="hamburgerIcon" />
-              )}
+              {isMobileMenuOpen ? <FiX /> : <FiMenu />}
             </button>
 
-            <div className="navleft">
+            <Link to="/" className="navleft" onClick={closeAll}>
               <img src={logoImg} alt="Vodi Logo" />
-            </div>
+            </Link>
           </div>
 
-          
+          {/* Əsas menyu */}
           <nav
-            className={`navcenter ${
-              isMobileMenuOpen ? "active" : ""
-            }`}
+            className={`navcenter ${isMobileMenuOpen ? "active" : ""}`}
             aria-label="Main navigation"
           >
-            
             <div className="sidebar-header">
               <span className="sidebar-title">Menu</span>
-
               <button
                 type="button"
                 className="sidebar-close"
@@ -112,84 +90,102 @@ export const Header = () => {
             </div>
 
             <ul className="main-menu">
-              {/* Home */}
               <li>
-                <a href="#" onClick={closeAll}>
+                <Link to="/" onClick={closeAll}>
                   Home
-                </a>
+                </Link>
               </li>
 
               {/* Movies */}
               <li
-                className={`movieClick ${
-                  isMovieOpen ? "open" : ""
-                }`}
+                className={`movieClick ${isMovieOpen ? "open" : ""}`}
+                onMouseEnter={() => {
+                  if (window.innerWidth >= 1024) {
+                    setIsMovieOpen(true);
+                    setIsBlogOpen(false);
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (window.innerWidth >= 1024) {
+                    setIsMovieOpen(false);
+                  }
+                }}
               >
-                <button
-                  type="button"
-                  className="menu-title"
-                  onClick={toggleMovie}
-                  aria-expanded={isMovieOpen}
-                >
-                  <span>Movies</span>
-                  <span className="toggle-icon">
-                    {isMovieOpen ? "▲" : "▼"}
-                  </span>
-                </button>
+                <div className="menu-heading">
+                  <Link to="/movies" onClick={closeAll}>
+                    Movies
+                  </Link>
 
-                {isMovieOpen && (
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a href="#" onClick={closeAll}>
-                        Movie
-                      </a>
-                    </li>
-                  </ul>
-                )}
+                  <button
+                    type="button"
+                    className="submenu-toggle"
+                    onClick={toggleMovie}
+                    aria-label="Open Movies submenu"
+                    aria-expanded={isMovieOpen}
+                  >
+                    {isMovieOpen ? "▲" : "▼"}
+                  </button>
+                </div>
+
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link to="/movies" onClick={closeAll}>
+                      Movie
+                    </Link>
+                  </li>
+                </ul>
               </li>
 
               {/* Blogs */}
               <li
-                className={`blogclick ${
-                  isBlogOpen ? "open" : ""
-                }`}
+                className={`blogclick ${isBlogOpen ? "open" : ""}`}
+                onMouseEnter={() => {
+                  if (window.innerWidth >= 1024) {
+                    setIsBlogOpen(true);
+                    setIsMovieOpen(false);
+                  }
+                }}
+                onMouseLeave={() => {
+                  if (window.innerWidth >= 1024) {
+                    setIsBlogOpen(false);
+                  }
+                }}
               >
-                <button
-                  type="button"
-                  className="menu-title"
-                  onClick={toggleBlog}
-                  aria-expanded={isBlogOpen}
-                >
-                  <span>Blogs</span>
-                  <span className="toggle-icon">
-                    {isBlogOpen ? "▲" : "▼"}
-                  </span>
-                </button>
+                <div className="menu-heading">
+                  <Link to="/blogs" onClick={closeAll}>
+                    Blogs
+                  </Link>
 
-                {isBlogOpen && (
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a href="#" onClick={closeAll}>
-                        Blog
-                      </a>
-                    </li>
-                  </ul>
-                )}
+                  <button
+                    type="button"
+                    className="submenu-toggle"
+                    onClick={toggleBlog}
+                    aria-label="Open Blogs submenu"
+                    aria-expanded={isBlogOpen}
+                  >
+                    {isBlogOpen ? "▲" : "▼"}
+                  </button>
+                </div>
+
+                <ul className="dropdown-menu">
+                  <li>
+                    <Link to="/blogs" onClick={closeAll}>
+                      Blog
+                    </Link>
+                  </li>
+                </ul>
               </li>
 
-              {/* Contact */}
               <li>
-                <a href="#" onClick={closeAll}>
+                <Link to="/contact" onClick={closeAll}>
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
 
           {/* Sağ tərəf */}
           <div className="navRight">
-
-            {/* Desktop axtarış */}
             <div className="searchContainer desktop-search">
               <input
                 type="search"
@@ -200,7 +196,6 @@ export const Header = () => {
               <FiSearch className="searchIcon" />
             </div>
 
-         
             <button
               type="button"
               className="mobile-search-toggle"
@@ -208,14 +203,9 @@ export const Header = () => {
               aria-label="Toggle search"
               aria-expanded={isSearchOpen}
             >
-              {isSearchOpen ? (
-                <FiX className="mobileSearchIcon" />
-              ) : (
-                <FiSearch className="mobileSearchIcon" />
-              )}
+              {isSearchOpen ? <FiX /> : <FiSearch />}
             </button>
 
-            {/* Upload */}
             <button
               type="button"
               className="uploadContainer desktop-upload"
@@ -224,7 +214,6 @@ export const Header = () => {
               <span>Upload</span>
             </button>
 
-            {/* Profil */}
             <button
               type="button"
               className="user"
@@ -235,19 +224,15 @@ export const Header = () => {
           </div>
         </div>
 
-        {/* Mobil axtarış paneli */}
+        {/* Mobil axtarış */}
         {isSearchOpen && (
           <div className="mobile-search-dropdown">
-            <div className="mobile-search-box">
-              <input
-                type="search"
-                placeholder="Search..."
-                className="mobile-search-input"
-                aria-label="Search movies"
-              />
-
-              <FiSearch className="mobile-search-btn-icon" />
-            </div>
+            <input
+              type="search"
+              placeholder="Search..."
+              className="mobile-search-input"
+              aria-label="Search movies"
+            />
           </div>
         )}
       </header>
