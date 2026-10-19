@@ -15,6 +15,7 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
+/* Şəkil */
 .vikingPosterHolder img {
   width: 100%;
   height: 100%;
@@ -22,6 +23,23 @@
   transition: transform 0.3s ease;
 }
 
+/* Mavi overlay */
+.vikingPosterHolder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(34, 184, 230, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Hover zamanı overlay görünsün */
+.vikingMediaCard:hover .vikingPosterHolder::after {
+  opacity: 1;
+}
+
+/* Hover zamanı şəkil böyüsün */
 .vikingMediaCard:hover .vikingPosterHolder img {
   transform: scale(1.05);
 }

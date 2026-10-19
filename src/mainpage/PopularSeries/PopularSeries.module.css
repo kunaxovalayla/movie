@@ -1,87 +1,76 @@
 
-
 .popularSeriesSection {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px 25px 60px;
   box-sizing: border-box;
-
-  background: #f4f5f8;
-  color: #1a1e29;
-  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #121723;
 }
-
-
 
 .popularSeriesContainer {
   display: grid;
-  grid-template-columns: 320px minmax(0, 1fr);
-  column-gap: 40px;
+  grid-template-columns: 280px minmax(0, 1fr);
+  column-gap: 30px;
   row-gap: 30px;
-
   width: 100%;
   margin: 0 auto;
-  align-items: start;
   box-sizing: border-box;
+  align-items: start;
 }
-
-
 
 .popularSeriesHeaderBlock {
   grid-column: 1;
   grid-row: 1;
   padding-top: 45px;
+  min-width: 0;
 }
 
 .popularSeriesTitleLine {
   width: 35px;
   height: 2px;
-  background: #cbd5e1;
+  background-color: #cbd5e1;
   margin-bottom: 20px;
 }
 
 .popularSeriesMainTitle {
+  margin: 0;
   font-size: 34px;
   line-height: 1.2;
   font-weight: 700;
-  color: #111827;
-  margin: 0;
-  letter-spacing: -0.5px;
+  color: #121723;
 }
-
-
 
 .popularSeriesRightContent {
   grid-column: 2;
   grid-row: 1;
-  display: flex;
-  flex-direction: column;
+  min-width: 0;
+  width: 100%;
 }
 
 .popularSeriesTabFilter {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
-
   font-size: 14px;
-  font-weight: 500;
   color: #9ca3af;
 }
 
 .popularSeriesTabFilter span {
   cursor: pointer;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
-.popularSeriesTabFilter span.activeTab {
+.popularSeriesTabFilter span:hover,
+.popularSeriesTabFilter .activeTab {
   color: #0ea5e9;
+}
+
+.popularSeriesTabFilter .activeTab {
   font-weight: 600;
-}
-
-.popularSeriesTabFilter span:hover:not(.tabDivider) {
-  color: #0ea5e9;
 }
 
 .tabDivider {
@@ -94,113 +83,111 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   width: 100%;
+  min-width: 0;
+  align-items: start;
 }
-
-
 
 .popularSeriesRowBottom {
   grid-column: 1 / -1;
   grid-row: 2;
-
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 16px;
   width: 100%;
+  min-width: 0;
+  align-items: start;
 }
-
-
 
 .popularSeriesCardItem {
-  min-width: 0;
-}
-
-.popularSeriesPosterHolder {
-  display: block;
-  position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  margin-bottom: 6px;
-  border-radius: 4px;
-  background: #e2e8f0;
-}
-
-.popularSeriesPosterHolder img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.popularSeriesPosterHolder:hover img {
-  transform: scale(1.04);
-}
-
-.popularSeriesInfoArea {
   min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
-.popularSeriesMetaLabel {
-  display: block;
-  color: #9ca3af;
-  font-size: 11px;
-  line-height: 1.3;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  margin-bottom: 2px;
+/* Kartın içindəki şəkillər və məzmun konteynerdən çıxmasın */
+.popularSeriesCardItem img {
+  max-width: 100%;
 }
 
-.popularSeriesCardTitle {
-  font-size: 13px;
-  line-height: 1.3;
-  font-weight: 700;
-  margin: 0;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.popularSeriesCardTitle a {
-  color: #111827;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.popularSeriesCardTitle a:hover {
-  color: #0ea5e9;
-}
-
-
-
+/* Planşet */
 @media (max-width: 1024px) {
+  .popularSeriesSection {
+    padding: 35px 20px 45px;
+  }
+
   .popularSeriesContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 16px;
+    row-gap: 20px;
   }
 
   .popularSeriesHeaderBlock {
+    grid-column: 1 / -1;
+    grid-row: auto;
     padding-top: 0;
   }
 
   .popularSeriesRightContent {
-    width: 100%;
+    display: contents;
+  }
+
+  .popularSeriesTabFilter {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
   }
 
   .popularSeriesRowTop,
   .popularSeriesRowBottom {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: contents;
+  }
+
+  .popularSeriesCardItem {
+    min-width: 0;
+    width: 100%;
   }
 }
 
-@media (max-width: 768px) {
-  .popularSeriesRowTop,
-  .popularSeriesRowBottom {
+/* Telefon */
+@media (max-width: 600px) {
+  .popularSeriesSection {
+    padding: 28px 14px 35px;
+  }
+
+  .popularSeriesContainer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+    row-gap: 16px;
+  }
+
+  .popularSeriesHeaderBlock,
+  .popularSeriesTabFilter {
+    grid-column: 1 / -1;
+  }
+
+  .popularSeriesMainTitle {
+    font-size: 27px;
+  }
+
+  .popularSeriesTabFilter {
+    gap: 7px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .popularSeriesSection {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .popularSeriesContainer {
+    column-gap: 8px;
+    row-gap: 14px;
+  }
+
+  .popularSeriesMainTitle {
+    font-size: 24px;
   }
 }

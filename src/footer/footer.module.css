@@ -1,0 +1,144 @@
+.footer {
+  background-color: #0d1117;
+  color: #8a94a6;
+  padding: 60px 30px 30px 30px;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 8px; /* İstəsəniz bu sərhəd radiusunu saxlaya və ya silə bilərsiniz */
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.container {
+  width: 100%;
+}
+
+/* Üst Hissə (Logo və Sosial Şəbəkələr) */
+.footerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.logo a {
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 30px;
+}
+
+.socialItem {
+  color: #8a94a6;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+
+.socialItem:hover {
+  color: #00a8ff;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.08);
+  margin: 25px 0;
+}
+
+/* Orta Hissə (Kateqoriyalar Grid) */
+.footerLinksGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+  padding: 30px 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.columnTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 22px;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.linkList li a {
+  color: #8a94a6;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.linkList li a:hover {
+  color: #00a8ff;
+}
+
+/* Alt Hissə (Copyright) */
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 25px;
+  font-size: 14px;
+  color: #718096;
+}
+
+.privacyLink {
+  color: #718096;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.privacyLink:hover {
+  color: #00a8ff;
+}
+
+/* Responsive (Mobil və Planşet Uyğunluğu) */
+@media (max-width: 1024px) {
+  .footerLinksGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 40px 15px 20px 15px;
+  }
+
+  .footerTop {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .footerLinksGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+}

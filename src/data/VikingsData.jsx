@@ -4,6 +4,14 @@ import marigold from "@/assets/images/marigold.jpg";
 import chaos from "@/assets/images/chaos.jpg";
 import babyblue from "@/assets/images/babyblue.jpg";
 
+import fictimental from "@/assets/images/fictimental.jpg";
+import dreamed from "@/assets/images/dreamed.jpg";
+import breaking from "@/assets/images/breaking.jpg";
+import drivein from "@/assets/images/drive-in.jpg";
+import venables from "@/assets/images/venables.jpg";
+import secret from "@/assets/images/secretgarden.jpg";
+
+
 export const VikingsData = [
     // --- Season 1 ---
     { vkId: 1, seria: "S05E01", photoVk: monday, titleVk: "The Departed Part 1", VideoVk: "https://www.youtube.com/watch?v=f5av6OqFwz0" },
@@ -39,4 +47,51 @@ export const VikingsData = [
     { vkId: 23, seria: "S05E01", photoVk: monday, titleVk: "The Departed Part 1", VideoVk: "https://www.youtube.com/watch?v=f5av6OqFwz0" },
     { vkId: 24, seria: "S05E02", photoVk: youth, titleVk: "The Departed Part 2", VideoVk: "https://www.youtube.com/watch?v=f5av6OqFwz0" },
     { vkId: 25, seria: "S05E03", photoVk: marigold, titleVk: "Homeland", VideoVk: "https://www.youtube.com/watch?v=f5av6OqFwz0" },
+
+
+
+
+
+    { 
+    vkId: 26, 
+    seria: "S01E02", 
+    photoVk: fictimental, 
+    titleVk: "Cat's in the Bag", 
+    VideoVk: "https://www.youtube.com/watch?v=HhesaQXLuRY" 
+  },
+  { 
+    vkId: 27, 
+    seria: "S02E05", 
+    photoVk: dreamed, 
+    titleVk: "Northwind", 
+    VideoVk: "https://www.youtube.com/watch?v=yOeuhYK44wg" 
+  },
+  { 
+    vkId: 28, 
+    seria: "S01E01", 
+    photoVk: breaking, 
+    titleVk: "Episode 1", 
+    VideoVk: "https://www.youtube.com/watch?v=HfFqHONPUa0" 
+  },
+  { 
+    vkId: 29, 
+    seria: "S03E05", 
+    photoVk: drivein, 
+    titleVk: "Usurper", 
+    VideoVk: "https://www.youtube.com/watch?v=HfFqHONPUa0" 
+  },
+  { 
+    vkId: 30, 
+    seria: "S04E01", 
+    photoVk: venables, 
+    titleVk: "The Awakening", 
+    VideoVk: "https://www.youtube.com/watch?v=yOeuhYK44wg" 
+  },
+  { 
+    vkId: 31, 
+    seria: "S04E05", 
+    photoVk: secret, 
+    titleVk: "Hidden Truths", 
+    VideoVk: "https://www.youtube.com/watch?v=-Yq3jeOmxSk" 
+  },
 ];

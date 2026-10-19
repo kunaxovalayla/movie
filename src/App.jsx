@@ -8,6 +8,9 @@ import { Action } from "./mainpage/Action/Action";
 import { Funniest } from "./mainpage/Funniest/Funniest";
 import { Vikings } from "./mainpage/Vikings/Vikings";
 import { PopularSeries } from "./mainpage/popularSeries/PopularSeries";
+import { Featured } from "./mainpage/Featured/Featured";
+import { Top} from "./mainpage/Top/Top";
+import { Footer} from "./footer/footer";
 
 export const App = () => {
   return (
@@ -21,7 +24,9 @@ export const App = () => {
       <Funniest/>
       <Vikings/>
       <PopularSeries/>
-      
+      <Featured/>
+      <Top/>
+      < Footer/>
      
     </>
   );

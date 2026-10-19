@@ -1,34 +1,57 @@
+
 .popularTvMediaCard {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-width: 0;
 }
 
 .popularTvPosterHolder {
   position: relative;
   display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   border-radius: 4px;
   overflow: hidden;
-  aspect-ratio: 16 / 9;
   background-color: #1f2937;
   margin-bottom: 8px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 .popularTvPosterHolder img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.popularTvMediaCard:hover .popularTvPosterHolder img {
+/* Mavi overlay */
+.popularTvPosterHolder::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(34, 184, 230, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Kursor şəklin üzərinə gələndə mavi rəng görünsün */
+.popularTvPosterHolder:hover::after {
+  opacity: 1;
+}
+
+/* Şəkil yüngül böyüsün */
+.popularTvPosterHolder:hover img {
   transform: scale(1.05);
 }
 
 .popularTvInfoArea {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .popularTvMetaLabel {
@@ -44,15 +67,16 @@
 .popularTvCardTitle {
   font-size: 14px;
   font-weight: 700;
-  color: #ffffff;
+ 
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+ 
 }
 
 .popularTvCardTitle a {
   color: inherit;
   text-decoration: none;
 }
+

@@ -1,0 +1,145 @@
+
+.vkMainSection {
+  padding: 40px 20px;
+  background: #131722;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.vkOuterContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.vkNavTabsWrapper {
+  margin-bottom: 24px;
+}
+
+.vkTabsList {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.vkTabTitle {
+  color: #9ca3af;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.vkTabTitle.vkTabActive {
+  color: #0284c7;
+  font-weight: 600;
+}
+
+.vkTabSlash {
+  color: #d1d5db;
+}
+
+.vkContentArea {
+  display: flex;
+  align-items: stretch;
+  gap: 30px;
+  width: 100%;
+}
+
+.vkSliderHolder {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.vkSwiperInstance {
+  width: 100%;
+}
+
+.vkSidebarPanel {
+  width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 25px;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.vkSidebarTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.3;
+  margin: 0;
+  text-align: center;
+}
+
+.vkSidebarFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.vkArrowControls {
+  display: flex;
+  gap: 10px;
+}
+
+:global(.vkCustomPrev),
+:global(.vkCustomNext),
+.vkArrowControlBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+:global(.vkCustomPrev):hover,
+:global(.vkCustomNext):hover,
+.vkArrowControlBtn:hover {
+  background-color: #ffffff;
+  color: #131722;
+  border-color: #ffffff;
+}
+
+.vkViewAllLink {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 1024px) {
+  .vkNavTabsWrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .vkTabsList {
+    justify-content: center;
+  }
+
+  .vkContentArea {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .vkSidebarPanel {
+    width: 100%;
+    border-left: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-left: 0;
+    padding-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+}
