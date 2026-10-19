@@ -1,4 +1,3 @@
-
 /* HEADER */
 
 .header-container {
@@ -9,7 +8,6 @@
   z-index: 1000;
   background: #fff;
   border-bottom: 1px solid #eaeaea;
-  font-family: Arial, sans-serif;
   box-sizing: border-box;
 }
 
@@ -82,7 +80,7 @@
   color: #00bfff;
 }
 
-/* Movies və Blogs */
+/* Movies */
 
 .menu-heading {
   display: flex;
@@ -100,7 +98,7 @@
   font-size: 10px;
 }
 
-/* DROPDOWN — çərçivəsiz */
+/* DROPDOWN — yalnız Movies üçün */
 
 .dropdown-menu {
   display: none;
@@ -234,23 +232,80 @@
   display: none;
 }
 
+/* MOBİL AXTARIŞ */
+
 .mobile-search-dropdown {
   position: absolute;
   top: 100%;
-  right: 15px;
-  width: 260px;
-  padding: 10px 0;
+  left: 0;
+  right: 0;
+  padding: 12px 25px 16px;
   background: #fff;
+  border-bottom: 1px solid #eaeaea;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   z-index: 1100;
+  animation: searchSlide 0.2s ease;
+}
+
+@keyframes searchSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.mobile-search-icon {
+  position: absolute;
+  left: 16px;
+  color: #888;
+  font-size: 18px;
+  pointer-events: none;
+  transition: color 0.2s ease;
 }
 
 .mobile-search-input {
   width: 100%;
-  padding: 10px 12px;
+  height: 46px;
+  padding: 0 18px 0 44px;
   border: 1px solid #ddd;
-  border-radius: 20px;
+  border-radius: 25px;
   outline: none;
-  font-size: 14px;
+  background: #fafafa;
+  color: #333;
+  font-size: 15px;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mobile-search-input::placeholder {
+  color: #9a9a9a;
+}
+
+.mobile-search-input:focus {
+  border-color: #00bfff;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.15);
+}
+
+.mobile-search-box:focus-within .mobile-search-icon {
+  color: #00bfff;
+}
+
+.mobile-search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 /* DESKTOP */
@@ -261,20 +316,21 @@
     gap: 30px;
   }
 
-  .movieClick:hover > .dropdown-menu,
-  .blogclick:hover > .dropdown-menu {
+  .movieClick:hover > .dropdown-menu {
     display: block;
   }
 
-  .movieClick,
-  .blogclick {
+  .movieClick {
     padding-bottom: 10px;
     margin-bottom: -10px;
   }
 
-  .movieClick > .dropdown-menu,
-  .blogclick > .dropdown-menu {
+  .movieClick > .dropdown-menu {
     top: 100%;
+  }
+
+  .mobile-search-dropdown {
+    display: none;
   }
 }
 
@@ -372,8 +428,7 @@
     height: 30px;
   }
 
-  .movieClick > .dropdown-menu,
-  .blogclick > .dropdown-menu {
+  .movieClick > .dropdown-menu {
     display: none;
     position: static;
     width: 100%;
@@ -383,8 +438,7 @@
     background: transparent;
   }
 
-  .movieClick.open > .dropdown-menu,
-  .blogclick.open > .dropdown-menu {
+  .movieClick.open > .dropdown-menu {
     display: block;
   }
 
@@ -435,8 +489,12 @@
   }
 
   .mobile-search-dropdown {
-    right: 10px;
-    width: min(260px, calc(100vw - 20px));
+    padding: 10px 15px 14px;
+  }
+
+  .mobile-search-input {
+    height: 44px;
+    font-size: 16px;
   }
 }
 

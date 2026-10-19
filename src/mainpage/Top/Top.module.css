@@ -27,9 +27,9 @@
   gap: 40px;
 }
 
-/* ================= SOL SIDEBAR ================= */
+
 .sidebar {
-  background-color: #171c28; /* Sol tərəf üçün xüsusi tünd fon rəngi */
+  background-color: #171c28;
   padding: 25px;
   border-radius: 8px;
   border-right: 1px solid rgba(255, 255, 255, 0.08);

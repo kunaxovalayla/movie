@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
@@ -11,39 +10,21 @@ import { FaUserCircle } from "react-icons/fa";
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMovieOpen, setIsMovieOpen] = useState(false);
-  const [isBlogOpen, setIsBlogOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const closeAll = () => {
     setIsMobileMenuOpen(false);
-    setIsMovieOpen(false);
-    setIsBlogOpen(false);
     setIsSearchOpen(false);
   };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
-    setIsMovieOpen(false);
-    setIsBlogOpen(false);
     setIsSearchOpen(false);
   };
 
   const toggleSearch = () => {
     setIsSearchOpen((prev) => !prev);
     setIsMobileMenuOpen(false);
-    setIsMovieOpen(false);
-    setIsBlogOpen(false);
-  };
-
-  const toggleMovie = () => {
-    setIsMovieOpen((prev) => !prev);
-    setIsBlogOpen(false);
-  };
-
-  const toggleBlog = () => {
-    setIsBlogOpen((prev) => !prev);
-    setIsMovieOpen(false);
   };
 
   return (
@@ -96,84 +77,17 @@ export const Header = () => {
                 </Link>
               </li>
 
-              {/* Movies */}
-              <li
-                className={`movieClick ${isMovieOpen ? "open" : ""}`}
-                onMouseEnter={() => {
-                  if (window.innerWidth >= 1024) {
-                    setIsMovieOpen(true);
-                    setIsBlogOpen(false);
-                  }
-                }}
-                onMouseLeave={() => {
-                  if (window.innerWidth >= 1024) {
-                    setIsMovieOpen(false);
-                  }
-                }}
-              >
-                <div className="menu-heading">
-                  <Link to="/movies" onClick={closeAll}>
-                    Movies
-                  </Link>
-
-                  <button
-                    type="button"
-                    className="submenu-toggle"
-                    onClick={toggleMovie}
-                    aria-label="Open Movies submenu"
-                    aria-expanded={isMovieOpen}
-                  >
-                    {isMovieOpen ? "▲" : "▼"}
-                  </button>
-                </div>
-
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link to="/movies" onClick={closeAll}>
-                      Movie
-                    </Link>
-                  </li>
-                </ul>
+              {/* Movies — Artıq tək və sadə linkdir, dropdown yoxdur */}
+              <li>
+                <Link to="/movies" onClick={closeAll}>
+                  Movies
+                </Link>
               </li>
 
-              {/* Blogs */}
-              <li
-                className={`blogclick ${isBlogOpen ? "open" : ""}`}
-                onMouseEnter={() => {
-                  if (window.innerWidth >= 1024) {
-                    setIsBlogOpen(true);
-                    setIsMovieOpen(false);
-                  }
-                }}
-                onMouseLeave={() => {
-                  if (window.innerWidth >= 1024) {
-                    setIsBlogOpen(false);
-                  }
-                }}
-              >
-                <div className="menu-heading">
-                  <Link to="/blogs" onClick={closeAll}>
-                    Blogs
-                  </Link>
-
-                  <button
-                    type="button"
-                    className="submenu-toggle"
-                    onClick={toggleBlog}
-                    aria-label="Open Blogs submenu"
-                    aria-expanded={isBlogOpen}
-                  >
-                    {isBlogOpen ? "▲" : "▼"}
-                  </button>
-                </div>
-
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link to="/blogs" onClick={closeAll}>
-                      Blog
-                    </Link>
-                  </li>
-                </ul>
+              <li>
+                <Link to="/blog" onClick={closeAll}>
+                  Blog
+                </Link>
               </li>
 
               <li>
@@ -227,12 +141,19 @@ export const Header = () => {
         {/* Mobil axtarış */}
         {isSearchOpen && (
           <div className="mobile-search-dropdown">
-            <input
-              type="search"
-              placeholder="Search..."
-              className="mobile-search-input"
-              aria-label="Search movies"
-            />
+            <div className="mobile-search-box">
+              <FiSearch className="mobile-search-icon" />
+              <input
+                type="search"
+                placeholder="Search movies..."
+                className="mobile-search-input"
+                aria-label="Search movies"
+                autoFocus
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") closeAll();
+                }}
+              />
+            </div>
           </div>
         )}
       </header>

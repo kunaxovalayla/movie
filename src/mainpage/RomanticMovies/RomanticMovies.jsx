@@ -17,7 +17,7 @@ export const RomanticMovies = () => {
         <section className={styles.section}>
             <div className={styles.container}>
 
-                {/* Üst Tabs hissəsi */}
+               
                 <div className={styles.tabsContainer}>
                     <div className={styles.tabs}>
                         <span className={`${styles.tabItem} ${styles.active}`}>Today</span>
@@ -28,21 +28,21 @@ export const RomanticMovies = () => {
                     </div>
                 </div>
 
-                {/* Əsas Kontent: Sol Swiper (6 film), Sağ Banner */}
+                
                 <div className={styles.contentWrapper}>
                     <div className={styles.swiperWrapperContainer}>
                         <Swiper
                             modules={[Navigation]}
                             spaceBetween={16}
-                            slidesPerView={6} // Normal halda 6 film
+                            slidesPerView={6} 
                             navigation={{
                                 prevEl: ".prevBtn",
                                 nextEl: ".nextBtn",
                             }}
                             breakpoints={{
-                                0: { slidesPerView: 2, spaceBetween: 10 },    // 768px-dən aşağı: 2 film
-                                768: { slidesPerView: 3, spaceBetween: 12 },  // 1024px-dən aşağı: 3 film
-                                1024: { slidesPerView: 6, spaceBetween: 16 }, // Normal halda (1400px): 6 film
+                                0: { slidesPerView: 2, spaceBetween: 10 },   
+                                768: { slidesPerView: 3, spaceBetween: 12 },  
+                                1024: { slidesPerView: 6, spaceBetween: 16 }, 
                             }}
                             className={styles.swiperContainer}
                         >

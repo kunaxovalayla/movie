@@ -92,7 +92,6 @@
   color: #00a8ff;
 }
 
-/* Alt Hissə (Copyright) */
 .footerBottom {
   display: flex;
   justify-content: space-between;
@@ -112,7 +111,7 @@
   color: #00a8ff;
 }
 
-/* Responsive (Mobil və Planşet Uyğunluğu) */
+
 @media (max-width: 1024px) {
   .footerLinksGrid {
     grid-template-columns: repeat(3, 1fr);

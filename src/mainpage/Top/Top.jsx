@@ -24,7 +24,7 @@ export const Top = () => {
     <section className={styles.sectionContainer}>
       <div className={styles.mainGrid}>
         
-        {/* SOL TƏRƏF: Top 9 this Week */}
+       
         <aside className={styles.sidebar}>
           <div className={styles.sidebarHeader}>
             <h2 className={styles.sidebarTitle}>Top 9 this Week</h2>
@@ -73,7 +73,6 @@ export const Top = () => {
           </div>
         </aside>
 
-        {/* SAĞ TƏRƏF: Newest Movies */}
         <main className={styles.contentArea}>
           <div className={styles.contentHeader}>
             <h2 className={styles.contentTitle}>Newest Movies</h2>
@@ -111,7 +110,7 @@ export const Top = () => {
             </div>
           </div>
 
-          {/* ƏSAS FİLM (Hero) */}
+          
           <div className={styles.featuredHero}>
             <div className={styles.heroPosterWrapper}>
               <img src={featuredMovie.poster} alt={featuredMovie.title} />
@@ -135,7 +134,7 @@ export const Top = () => {
             </div>
           </div>
 
-          {/* İKİ SÜTUNLU KARTLAR */}
+   
           <div className={styles.cardsTwoColumnGrid}>
             <div className={styles.columnGroup}>
               {rightColumnLeftList.map((movie, index) => (

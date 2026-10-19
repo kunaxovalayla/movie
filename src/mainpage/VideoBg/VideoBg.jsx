@@ -16,7 +16,7 @@ export const VideoBg = () => {
                className={styles.bgVideo}
                />
 
-                {/* Sağ taraftaki Oynat Butonu */}
+                
                 <div className={styles.playOverlay} onClick={() => setIsVideoOpen(true)}>
                     <div className={styles.playButtonCircle}>
                         <span className={styles.playIcon}>▶</span>

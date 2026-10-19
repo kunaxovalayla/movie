@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./Footer.module.css"; // Öz CSS modulu yolunuz
+import styles from "./Footer.module.css"; 
 
 export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
         
-        {/* Üst hissə: Logo və Sosial şəbəkələr */}
+     
         <div className={styles.footerTop}>
           <div className={styles.logo}>
             <Link to="/">vodi</Link>
@@ -23,10 +23,10 @@ export const Footer = () => {
 
         <div className={styles.divider}></div>
 
-        {/* Orta hissə: Kateqoriyalar və Linklər */}
+      
         <div className={styles.footerLinksGrid}>
           
-          {/* Movie Categories - Sütun 1 */}
+          
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>Movie Categories</h3>
             <ul className={styles.linkList}>
@@ -38,7 +38,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Movie Categories - Sütun 2 */}
           <div className={styles.column}>
             <h3 className={styles.columnTitle} style={{ visibility: "hidden" }}>Categories</h3>
             <ul className={styles.linkList}>
@@ -50,7 +49,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* TV Series - Sütun 1 */}
+          
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>TV Series</h3>
             <ul className={styles.linkList}>
@@ -62,7 +61,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* TV Series - Sütun 2 */}
+  
           <div className={styles.column}>
             <h3 className={styles.columnTitle} style={{ visibility: "hidden" }}>TV Series</h3>
             <ul className={styles.linkList}>
@@ -73,7 +72,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Support */}
+      
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>Support</h3>
             <ul className={styles.linkList}>
@@ -89,7 +88,7 @@ export const Footer = () => {
 
         <div className={styles.divider}></div>
 
-        {/* Alt hissə: Copyright */}
+   
         <div className={styles.footerBottom}>
           <p>© 2019, Vodi. All Rights Reserved</p>
           <Link to="/movies" className={styles.privacyLink}>Privacy Policy</Link>

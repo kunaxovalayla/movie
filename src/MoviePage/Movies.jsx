@@ -146,7 +146,7 @@ const SortDropdown = ({ value, onChange }) => {
   );
 };
 
-/* ---------- list item ---------- */
+
 
 const MovieListItem = ({ movie, rating }) => {
   const title = movie.title ?? movie.name;
@@ -191,8 +191,6 @@ const MovieListItem = ({ movie, rating }) => {
   );
 };
 
-/* ---------- page ---------- */
-
 export const Movies = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -209,7 +207,7 @@ export const Movies = () => {
 
   const itemsPerPage = 24;
 
-  // telefon: 3 sütunlu şəbəkə | planşet: hər sətirdə 1 kart | masaüstü: seçilmiş rejim
+  
   const effectiveMode = isMobile
     ? "gridMobile"
     : isTablet
@@ -218,7 +216,7 @@ export const Movies = () => {
 
   const isList = !isMobile && (isTablet || effectiveMode.startsWith("list"));
 
-  /* drawer: ESC, scroll lock, resize */
+
   useEffect(() => {
     if (!isResponsive) setFiltersOpen(false);
   }, [isResponsive]);
